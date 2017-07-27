@@ -6,16 +6,14 @@ LABEL description="XMRig in Docker. Supports CPU mining."
 WORKDIR /tmp
 
 RUN apt-get update \
-    && apt-get -y --no-install-recommends install ca-certificates cmake libuv1-dev build-essential git \
-    && git clone https://github.com/xmrig/xmrig.git \
-    && cd xmrig/ \
-    && cmake . -DCMAKE_BUILD_TYPE=Release -DUV_LIBRARY=/usr/lib/x86_64-linux-gnu/libuv.a \
-    && make \
-    && mv xmrig /usr/local/bin/xmrig \
+    && apt-get -y --no-install-recommends install ca-certificates curl \
+    && curl -L -O https://github.com/xmrig/xmrig/releases/download/v2.1.0/xmrig-2.1.0-gcc7-xenial-amd64.tar.gz \
+    && tar -xvf xmrig-2.1.0-gcc7-xenial-amd64.tar.gz \
+    && rm xmrig-2.1.0-gcc7-xenial-amd64.tar.gz \
+    && mv xmrig-2.1.0/xmrig /usr/local/bin/xmrig \
     && chmod a+x /usr/local/bin/xmrig \
-    && cd .. \
-    && rm -r xmrig/ \
-    && apt-get -y remove ca-certificates cmake libuv1-dev build-essential git \
+    #&& rm -r xmrig-2.1.0/ \
+    && apt-get -y remove ca-certificates curl \
     && apt-get -y autoremove \
     && apt-get clean autoclean \
     && rm -rf /var/lib/{apt,dpkg,cache,log}/
