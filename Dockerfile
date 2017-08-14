@@ -12,10 +12,10 @@ RUN apt-get update \
     && rm xmrig-2.2.1-gcc7-xenial-amd64.tar.gz \
     && mv xmrig-2.2.1/xmrig /usr/local/bin/xmrig \
     && chmod a+x /usr/local/bin/xmrig \
-    && rm -r xmrig-2.2.1/ \
+    && rm -r xmrig-2.2.1 \
     && apt-get -y remove ca-certificates curl \
     && apt-get -y autoremove \
     && apt-get clean autoclean \
-    && rm -rf /var/lib/{apt,dpkg,cache,log}/
+    && rm -rf /var/lib/{apt,dpkg,cache,log}
 
 ENTRYPOINT ["xmrig"]
