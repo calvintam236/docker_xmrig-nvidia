@@ -9,7 +9,7 @@ XMRig-NVIDIA supports Cryptonight, and Cryptonight-lite.
 Run in background:
 
 ```console
-$ docker run -d --device /dev/nvidia0:/dev/nvidia0 --device /dev/nvidiactl:/dev/nvidiactl --name YOUR_CONTAINER_NAME calvintam236/xmrig-nvidia:nvidia -a YOUR_ALGO -o YOUR_POOL_ADDRESS -u YOUR_USERNAME.YOUR_WORKER_NAME -p YOUR_WORKER_PASSWORD --donate-level=1
+$ docker run -d --device /dev/nvidia0:/dev/nvidia0 --device /dev/nvidiactl:/dev/nvidiactl --device /dev/nvidia-uvm:/dev/nvidia-uvm --device /dev/nvidia-modeset:/dev/nvidia-modeset --name YOUR_CONTAINER_NAME calvintam236/xmrig-nvidia:nvidia -a YOUR_ALGO -o YOUR_POOL_ADDRESS -u YOUR_USERNAME.YOUR_WORKER_NAME -p YOUR_WORKER_PASSWORD --donate-level=1
 ```
 
 Get `xmrig` options with:
