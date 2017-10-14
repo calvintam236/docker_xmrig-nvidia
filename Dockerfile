@@ -9,7 +9,7 @@ RUN apt-get update \
     && apt-get -y --no-install-recommends install ca-certificates git build-essential cmake libuv1-dev \
     && git clone https://github.com/xmrig/xmrig-nvidia.git \
     && cd xmrig-nvidia \
-    && cmake . -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-8.0 \
+    && cmake . -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-9.0 \
     && make \
     && mv xmrig-nvidia /usr/local/bin/xmrig-nvidia \
     && chmod a+x /usr/local/bin/xmrig-nvidia \
