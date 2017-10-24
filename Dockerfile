@@ -6,16 +6,17 @@ LABEL description="XMRig-NVIDIA in Docker. Supports GPU mining."
 WORKDIR /tmp
 
 RUN apt-get update \
-    && apt-get -y --no-install-recommends install ca-certificates git build-essential cmake libuv1-dev \
-    && git clone https://github.com/xmrig/xmrig-nvidia.git \
-    && cd xmrig-nvidia \
-    && cmake . -DCUDA_ARCH="30;50;60" -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-9.0 \
+    && apt-get -y --no-install-recommends install ca-certificates curl build-essential cmake libmicrohttpd-dev libuv1-dev \
+    && curl -L -O https://github.com/xmrig/xmrig-nvidia/archive/v2.4.2.tar.gz \
+    && tar -xvf v2.4.2.tar.gz \
+    && cd xmrig-nvidia-2.4.2 \
+    && cmake . -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-9.0 \
     && make \
     && mv xmrig-nvidia /usr/local/bin/xmrig-nvidia \
     && chmod a+x /usr/local/bin/xmrig-nvidia \
     && cd .. \
-    && rm -r xmrig-nvidia \
-    && apt-get -y remove ca-certificates git build-essential cmake \
+    && rm -r xmrig-nvidia-2.4.2 \
+    && apt-get -y remove ca-certificates build-essential cmake \
     && apt-get clean autoclean \
     && rm -rf /var/lib/{apt,dpkg,cache,log}
 
