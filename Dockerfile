@@ -9,6 +9,7 @@ RUN apt-get update \
     && apt-get -y --no-install-recommends install ca-certificates curl build-essential cmake libuv1-dev \
     && curl -L -O https://github.com/xmrig/xmrig-nvidia/archive/v2.4.2.tar.gz \
     && tar -xvf v2.4.2.tar.gz \
+    && rm v2.4.2.tar.gz \
     && cd xmrig-nvidia-2.4.2 \
     && mkdir build \
     && cd build \
