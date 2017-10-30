@@ -19,7 +19,7 @@ RUN apt-get update \
     && mv xmrig-nvidia-2.4.2/build/xmrig-nvidia /usr/local/bin/xmrig-nvidia \
     && chmod a+x /usr/local/bin/xmrig-nvidia \
     && rm -r xmrig-nvidia-2.4.2 \
-    && apt-get -y remove ca-certificates build-essential cmake libuv1-dev \
+    && apt-get -y remove ca-certificates curl build-essential cmake libuv1-dev \
     && apt-get clean autoclean \
     && rm -rf /var/lib/{apt,dpkg,cache,log}
 
