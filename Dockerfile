@@ -1,4 +1,4 @@
-FROM calvintam236/ubuntu:nvidia
+FROM calvintam236/ubuntu:cuda
 
 LABEL maintainer="calvintam236"
 LABEL description="XMRig-NVIDIA in Docker. Supports GPU mining."

@@ -4,22 +4,22 @@
 
 XMRig-NVIDIA is the console miner provided by [XMRig](https://github.com/xmrig/xmrig-nvidia).
 
-XMRig supports Cryptonight, Cryptonight-heavy and Cryptonight-lite.
+XMRig-NVIDIA supports Cryptonight, Cryptonight-heavy and Cryptonight-lite.
 
 ### Example usages
 
-Replace `ARCH` for your graphic card architecture. Available option(s): `nvidia`
+Replace `ARCH` for your graphic card architecture. Available option(s): `cuda`
 
 - To run the container in background:
 
 ```console
-$ docker run -d --device /dev/nvidia0 --device /dev/nvidiactl --device /dev/nvidia-uvm --name YOUR_CONTAINER_NAME calvintam236/xmrig-nvidia:nvidia -a YOUR_ALGO -o YOUR_POOL_ADDRESS -u YOUR_USERNAME.YOUR_WORKER_NAME -p YOUR_WORKER_PASSWORD
+$ docker run -d --device /dev/nvidia0 --device /dev/nvidiactl --device /dev/nvidia-uvm --name YOUR_CONTAINER_NAME calvintam236/xmrig-nvidia:cuda -a YOUR_ALGO -o YOUR_POOL_ADDRESS -u YOUR_USERNAME.YOUR_WORKER_NAME -p YOUR_WORKER_PASSWORD
 ```
 
-- Get `xmrig` options:
+- Get `xmrig-nvidia` options:
 
 ```console
-$ docker run --rm calvintam236/xmrig:nvidia
+$ docker run --rm calvintam236/xmrig-nvidia:ARCH
 ```
 
 - To fetch logs of a container:
