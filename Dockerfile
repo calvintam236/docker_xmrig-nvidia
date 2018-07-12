@@ -1,6 +1,6 @@
 FROM calvintam236/ubuntu:nvidia
 
-MAINTAINER calvintam236 <calvintam236@users.noreply.github.com>
+LABEL maintainer="calvintam236"
 LABEL description="XMRig-NVIDIA in Docker. Supports GPU mining."
 
 WORKDIR /tmp
@@ -13,7 +13,7 @@ RUN apt-get update \
     && cd xmrig-nvidia-2.6.1 \
     && mkdir build \
     && cd build \
-    && cmake .. -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-9.1 \
+    && cmake .. -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-9.2 \
     && make \
     && cd ../.. \
     && mv xmrig-nvidia-2.6.1/build/xmrig-nvidia /usr/local/bin/xmrig-nvidia \
