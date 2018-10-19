@@ -6,7 +6,7 @@ LABEL description="XMRig-NVIDIA in Docker. Supports GPU mining."
 WORKDIR /tmp
 
 RUN apt-get update \
-    && apt-get -y --no-install-recommends install ca-certificates curl build-essential cmake libmicrohttpd-dev libuv1-dev \
+    && apt-get -y --no-install-recommends install ca-certificates curl build-essential cmake libmicrohttpd-dev libssl-dev libuv1-dev \
     && curl -L -O https://github.com/xmrig/xmrig-nvidia/archive/v2.8.1.tar.gz \
     && tar -xvf v2.8.1.tar.gz \
     && rm v2.8.1.tar.gz \
@@ -19,7 +19,7 @@ RUN apt-get update \
     && mv xmrig-nvidia-2.8.1/build/xmrig-nvidia /usr/local/bin/xmrig-nvidia \
     && chmod a+x /usr/local/bin/xmrig-nvidia \
     && rm -r xmrig-nvidia-2.8.1 \
-    && apt-get -y remove ca-certificates curl build-essential cmake libmicrohttpd-dev libuv1-dev \
+    && apt-get -y remove ca-certificates curl build-essential cmake libmicrohttpd-dev libssl-dev libuv1-dev \
     && apt-get clean autoclean \
     && rm -rf /var/lib/{apt,dpkg,cache,log}
 
