@@ -13,19 +13,19 @@ Due to licensing, no one can redistribute the software. Please build this image 
 - To build the image:
 
 ```console
-$ docker build . --file YOUR_VERSION/Dockerfile.YOUR_ARCH --tag calvintam236/xmrig-nvidia:YOUR_VERSION
+$ docker build . --file YOUR_VERSION/Dockerfile.YOUR_ARCH --tag calvintam236/xmrig-nvidia:BRANCH-YOUR_VERSION
 ```
 
 - To run the container in background:
 
 ```console
-$ docker run -d --device /dev/nvidia0 --device /dev/nvidiactl --device /dev/nvidia-uvm --name YOUR_CONTAINER_NAME calvintam236/xmrig-nvidia:YOUR_VERSION -a YOUR_ALGO -o YOUR_POOL_ADDRESS -u YOUR_USERNAME.YOUR_WORKER_NAME -p YOUR_WORKER_PASSWORD
+$ docker run -d --device /dev/nvidia0 --device /dev/nvidiactl --device /dev/nvidia-uvm --name YOUR_CONTAINER_NAME calvintam236/xmrig-nvidia:BRANCH-YOUR_VERSION -a YOUR_ALGO -o YOUR_POOL_ADDRESS -u YOUR_USERNAME.YOUR_WORKER_NAME -p YOUR_WORKER_PASSWORD
 ```
 
 - To get `xmrig-nvidia` options:
 
 ```console
-$ docker run --rm calvintam236/xmrig-nvidia:YOUR_VERSION
+$ docker run --rm calvintam236/xmrig-nvidia:BRANCH-YOUR_VERSION
 ```
 
 - To fetch logs of a container:
